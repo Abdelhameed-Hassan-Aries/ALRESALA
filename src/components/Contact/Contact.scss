@@ -3,6 +3,11 @@
 
 .contact {
   background: $cream-50;
+  padding-block-start: 0;
+
+  @media (max-width: $bp-sm) {
+    padding-block-start: 24px;
+  }
 
   &__head {
     margin-block-end: 56px;
@@ -239,6 +244,10 @@
 
   &__submit {
     align-self: flex-start;
-    margin-block-start: 6px;
+    margin-block-start: auto;
+
+    @media (max-width: $bp-lg) {
+      margin-block-start: 6px;
+    }
   }
 }

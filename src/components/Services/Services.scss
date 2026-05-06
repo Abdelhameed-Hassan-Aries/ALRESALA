@@ -7,40 +7,67 @@
   overflow: hidden;
   isolation: isolate;
 
-  &::before {
-    content: '';
+  &__decor {
     position: absolute;
-    inset-inline-end: -200px;
-    inset-block-start: -200px;
-    inline-size: 500px;
-    block-size: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba($brand-primary, 0.08), transparent 70%);
+    inset: 0;
     z-index: -1;
+    pointer-events: none;
+  }
 
-    [dir='rtl'] & {
-      inset-inline-end: auto;
-      inset-inline-start: -200px;
+  &__decor-line {
+    position: absolute;
+    background: linear-gradient(180deg, transparent, rgba($brand-primary, 0.18), transparent);
+
+    &--1 {
+      inset-block-start: 0;
+      inset-block-end: 0;
+      inset-inline-start: 18%;
+      inline-size: 1px;
+
+      [dir='rtl'] & {
+        inset-inline-start: auto;
+        inset-inline-end: 18%;
+      }
+    }
+
+    &--2 {
+      inset-block-start: 0;
+      inset-block-end: 0;
+      inset-inline-end: 22%;
+      inline-size: 1px;
+      background: linear-gradient(180deg, transparent, rgba($brand-accent, 0.14), transparent);
+
+      [dir='rtl'] & {
+        inset-inline-end: auto;
+        inset-inline-start: 22%;
+      }
+    }
+
+    @media (max-width: $bp-md) {
+      display: none;
     }
   }
 
   &__head {
-    margin-block-end: 64px;
-    max-width: 720px;
+    margin-block-end: 56px;
 
-    @media (max-width: $bp-md) {
-      margin-block-end: 36px;
+    @media (max-width: $bp-lg) {
+      margin-block-end: 40px;
     }
+  }
+
+  &__head-text {
+    max-width: 720px;
   }
 
   &__grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 28px;
+    gap: 22px;
 
     @media (max-width: $bp-lg) {
       grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
+      gap: 18px;
     }
 
     @media (max-width: $bp-md) {
@@ -53,7 +80,7 @@
 .service-card {
   position: relative;
   background: $white;
-  padding: 36px 32px 32px;
+  padding: 32px 30px 28px;
   border-radius: $radius-xl;
   border: 1px solid $border;
   overflow: hidden;
@@ -63,9 +90,10 @@
     border-color $dur-base $ease-out;
   display: flex;
   flex-direction: column;
-  min-block-size: 220px;
+  gap: 14px;
+  isolation: isolate;
 
-  // ===== Asymmetric grid: first card spans 3, then 3, then a row of 3 cards each spanning 2 =====
+  // Bento layout: row 1 has 3-col + 3-col, row 2 has 2+2+2
   grid-column: span 3;
 
   &:nth-child(n + 3) {
@@ -74,7 +102,7 @@
 
   @media (max-width: $bp-lg) {
     grid-column: span 2 !important;
-    min-block-size: 200px;
+    padding: 28px 24px;
 
     &:nth-child(5) {
       grid-column: 2 / span 2 !important;
@@ -83,7 +111,6 @@
 
   @media (max-width: $bp-md) {
     grid-column: 1 / -1 !important;
-    min-block-size: 0;
     padding: 24px 20px;
     border-radius: $radius-lg;
 
@@ -92,35 +119,39 @@
     }
   }
 
+  // Hairline gradient on top
   &::before {
     content: '';
     position: absolute;
     inset-block-start: 0;
     inset-inline-start: 0;
     inline-size: 0;
-    block-size: 4px;
+    block-size: 3px;
     background: linear-gradient(90deg, $brand-primary, $brand-accent);
     transition: inline-size 600ms $ease-out;
     border-start-start-radius: $radius-xl;
     border-start-end-radius: $radius-xl;
+    z-index: 1;
   }
 
+  // Soft glow bottom-right
   &::after {
     content: '';
     position: absolute;
-    inset-block-end: -50px;
-    inset-inline-end: -50px;
-    inline-size: 140px;
-    block-size: 140px;
+    inset-block-end: -60px;
+    inset-inline-end: -60px;
+    inline-size: 180px;
+    block-size: 180px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba($brand-primary, 0.06), transparent 70%);
+    background: radial-gradient(circle, rgba($brand-primary, 0.08), transparent 70%);
+    opacity: 0;
     transition: transform $dur-slow $ease-out, opacity $dur-base $ease-out;
     pointer-events: none;
-    opacity: 0;
+    z-index: 0;
   }
 
   &:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     box-shadow: 0 22px 60px -18px rgba($navy-900, 0.18);
     border-color: transparent;
 
@@ -139,6 +170,18 @@
       transform: rotate(-8deg) scale(1.05);
     }
 
+    .service-card__fact {
+      background: rgba($brand-primary, 0.06);
+      border-color: rgba($brand-primary, 0.25);
+    }
+
+    .service-card__fact-bullet {
+      transform: translate(2px, -2px);
+
+      [dir='rtl'] & {
+        transform: translate(-2px, -2px);
+      }
+    }
   }
 
   @media (max-width: $bp-md) {
@@ -147,54 +190,77 @@
     }
   }
 
+  &__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__kicker {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: $brand-primary;
+    line-height: 1.2;
+    padding-block-start: 6px;
+
+    [dir='rtl'] & {
+      letter-spacing: 0.04em;
+      text-transform: none;
+      font-weight: 800;
+      font-size: 0.78rem;
+    }
+  }
+
   &__icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    inline-size: 60px;
-    block-size: 60px;
-    border-radius: 18px;
+    inline-size: 52px;
+    block-size: 52px;
+    border-radius: 16px;
     background: linear-gradient(135deg, rgba($brand-primary, 0.14), rgba($brand-accent, 0.1));
     color: $brand-primary-dark;
-    margin-block-end: 24px;
+    flex-shrink: 0;
     transition:
       background $dur-base $ease-out,
       color $dur-base $ease-out,
       transform $dur-base $ease-out;
-    position: relative;
-    z-index: 2;
 
     svg {
-      width: 26px;
-      height: 26px;
+      width: 22px;
+      height: 22px;
     }
 
     @media (max-width: $bp-md) {
-      inline-size: 48px;
-      block-size: 48px;
-      border-radius: 14px;
-      margin-block-end: 16px;
+      inline-size: 44px;
+      block-size: 44px;
+      border-radius: 12px;
 
       svg {
-        width: 22px;
-        height: 22px;
+        width: 18px;
+        height: 18px;
       }
     }
   }
 
-  h3 {
-    font-size: 1.2rem;
-    margin-block-end: 10px;
+  &__title {
+    font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+    margin: 0;
+    color: $text-primary;
     position: relative;
     z-index: 2;
-
-    @media (max-width: $bp-md) {
-      font-size: 1.05rem;
-      margin-block-end: 8px;
-    }
+    line-height: 1.3;
   }
 
-  p {
+  &__desc {
     color: $text-secondary;
     font-size: 0.95rem;
     line-height: 1.7;
@@ -204,6 +270,48 @@
     @media (max-width: $bp-md) {
       font-size: 0.9rem;
       line-height: 1.6;
+    }
+  }
+
+  &__fact {
+    margin-block-start: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: rgba($cream-100, 0.6);
+    border: 1px dashed $border-strong;
+    border-radius: $radius-md;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: $text-primary;
+    line-height: 1.4;
+    position: relative;
+    z-index: 2;
+    transition:
+      background $dur-base $ease-out,
+      border-color $dur-base $ease-out;
+  }
+
+  &__fact-bullet {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 22px;
+    block-size: 22px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $brand-primary, $brand-accent);
+    color: $white;
+    flex-shrink: 0;
+    transition: transform $dur-base $ease-out;
+
+    svg {
+      width: 12px;
+      height: 12px;
+
+      [dir='rtl'] & {
+        transform: scaleX(-1);
+      }
     }
   }
 }

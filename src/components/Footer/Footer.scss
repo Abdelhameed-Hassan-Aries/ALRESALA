@@ -171,12 +171,12 @@
   &__bar {
     padding-block: 22px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
     gap: 12px;
     color: rgba($white, 0.5);
     font-size: 0.85rem;
-    text-align: center;
+    text-align: start;
   }
 }

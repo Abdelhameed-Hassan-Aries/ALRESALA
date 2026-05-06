@@ -29,15 +29,29 @@
   },
   "about": {
     "eyebrow": "About AlResalah",
-    "title": "Our vision: to be your first choice in smart real-estate investing",
-    "p1": "AlResalah Group was founded on a clear mission — to deliver properties worth your trust, in strategic locations, with value that grows over time. We develop residential, investment, industrial, and resort projects that elevate the lifestyle of our clients.",
-    "p2": "We believe a successful property is more than a building — it is a thoughtful investment decision and a long-term relationship. That is why we hold ourselves to the highest standards of quality, transparency and on-time delivery.",
-    "feature1Title": "Strategic Location",
-    "feature1Desc": "Every project is hand-picked in the most promising growth areas.",
-    "feature2Title": "Value That Grows",
-    "feature2Desc": "Your investment with us appreciates over time — never just stored.",
-    "feature3Title": "A Real Opportunity",
-    "feature3Desc": "Curated real-estate options that fit the smart investor.",
+    "title": "Our new era began — and every decision is built with our clients",
+    "p1": "Since 2008, AlResalah Group has been quietly turning Egyptian land into long-term wealth. From our first plot in Greater Cairo to our latest investments in New Obour City, every decision starts with one question: would we put our own money into this?",
+    "p2": "We are not the loudest developer in Egypt — we are the one your friend recommends after closing a deal. Headquartered on Gesr El-Suez Street in Cairo, our team of advisors, engineers and legal experts walks every plot, audits every contract, and stays with you long after the keys are handed over.",
+    "philosophy": "Land doesn't lose value — bad timing does.",
+    "philosophyAuthor": "AlResalah Group",
+    "pillarsHeading": "How we earn the word \"trust\"",
+    "pillar1Title": "Walk-the-land discipline",
+    "pillar1Desc": "Every plot we sell, our partners stand on first. No brochure-only deals. No second-hand promises.",
+    "pillar2Title": "Investor-grade pricing",
+    "pillar2Desc": "We price land the way smart money buys it — based on growth zone, infrastructure timeline, and exit value, not speculation.",
+    "pillar3Title": "Lifetime relationship",
+    "pillar3Desc": "Your file stays open with us. Resale advice, paperwork, swaps — the same WhatsApp number, ten years from now.",
+    "timelineHeading": "Milestones along the way",
+    "timeline": {
+      "2008Title": "The first plot",
+      "2008Desc": "AlResalah is founded in Cairo with a single rule: only sell land we'd buy ourselves.",
+      "2014Title": "Industrial expansion",
+      "2014Desc": "We open our industrial-land division, helping Egyptian factories pick locations with utilities and master plans approved.",
+      "2020Title": "New Obour focus",
+      "2020Desc": "We bet early on New Obour City (formerly El-Qadissia) — long before the highways made it obvious.",
+      "2026Title": "Our new era",
+      "2026Desc": "Premium residential and Suave Resort in development. The Cairo office on Gesr El-Suez stays your single point of contact."
+    },
     "values": {
       "trust": "Trust",
       "quality": "Quality",
@@ -45,7 +59,17 @@
       "transparency": "Transparency"
     },
     "miniStat1": "Projects",
-    "miniStat2": "Trusted clients"
+    "miniStat2": "Trusted clients",
+    "stats": {
+      "yearsValue": "18+",
+      "yearsLabel": "Years of experience",
+      "projectsValue": "20+",
+      "projectsLabel": "Projects delivered",
+      "clientsValue": "500+",
+      "clientsLabel": "Investors who came back",
+      "officeValue": "1",
+      "officeLabel": "Cairo HQ — Gesr El-Suez"
+    }
   },
   "projects": {
     "eyebrow": "Our Projects",
@@ -109,31 +133,42 @@
     }
   },
   "services": {
-    "eyebrow": "Why AlResalah",
-    "title": "Five values that make us the smarter choice",
-    "subtitle": "We don't just sell you a property — we build a long-term investment relationship with you.",
+    "eyebrow": "How We Work",
+    "title": "Five things you only get with AlResalah",
+    "subtitle": "We're a property developer, but most of our clients describe us as their land advisor first. Here is exactly what that means in practice.",
     "items": {
       "trust": {
-        "title": "Trust & Transparency",
-        "desc": "An honest, clear relationship from the first contract to delivery."
+        "kicker": "01 — Contract Day One",
+        "title": "Plain-Arabic contracts",
+        "desc": "No legal traps. Every price, payment date and obligation is written in language you would read out loud at the dinner table.",
+        "fact": "Average contract length: 4 pages, not 40."
       },
       "location": {
-        "title": "Curated Locations",
-        "desc": "Every plot is hand-picked in the most promising and valuable areas."
+        "kicker": "02 — Before You Buy",
+        "title": "We walk the plot with you",
+        "desc": "We do not sell anything from a brochure. Our team meets you on the land itself — in New Obour, an industrial zone or the resort site — before a single pound is paid.",
+        "fact": "Free site visit, even on Fridays."
       },
       "value": {
-        "title": "Growing Value",
-        "desc": "Your investment in land today is your wealth tomorrow."
+        "kicker": "03 — Investor-Grade Pricing",
+        "title": "Pricing built for resale",
+        "desc": "We benchmark every plot against three reference deals from the same zone in the last 12 months. You see the math before you sign.",
+        "fact": "Pricing memo shared in writing."
       },
       "diverse": {
-        "title": "Diverse Portfolio",
-        "desc": "Residential, investment, industrial and resort options for everyone."
+        "kicker": "04 — One Group, Four Tracks",
+        "title": "Investment, industrial, residential, resort",
+        "desc": "Whether you are buying your first land in New Obour, scaling a factory, or moving into Suave Resort — it is the same team and the same standards across the portfolio.",
+        "fact": "Switch between tracks any time."
       },
       "support": {
-        "title": "Continuous Support",
-        "desc": "Our team is with you from your first inquiry all the way past delivery."
+        "kicker": "05 — After Delivery",
+        "title": "We stay your number",
+        "desc": "Delivery is not the end of the file. Resale support, paperwork, contractor referrals — the same advisor stays with you long after handover.",
+        "fact": "Reach us 7 days a week on WhatsApp."
       }
-    }
+    },
+    "promise": "If we cannot answer your question within 24 hours, we will tell you why on the first call."
   },
   "stats": {
     "title": "Numbers that tell our story",
@@ -145,9 +180,15 @@
     }
   },
   "cta": {
-    "title": "Invest in New Obour before time outpaces you",
-    "subtitle": "Opportunities don't wait — today the land is still in your hands at its current price.",
-    "button": "Book your consultation"
+    "eyebrow": "Time waits for no one",
+    "title": "The land is still in your hands — at today's price",
+    "subtitle": "Tomorrow you will look for it and not find it at the same number. Book a 20-minute consultation with one of our advisors and walk away with a clear answer — even if AlResalah is not the right fit for you.",
+    "button": "Book your consultation",
+    "buttonSecondary": "Talk on WhatsApp",
+    "marquee": "New Obour Lands · Industrial Plots · Suave Resort · Premium Development · Cairo HQ · 18 Years",
+    "trust1": "20-min free consultation",
+    "trust2": "Reply within 24 hours",
+    "trust3": "No pressure, ever"
   },
   "contact": {
     "eyebrow": "Contact Us",
