@@ -1,0 +1,209 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.services {
+  background: $bg-section-alt;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset-inline-end: -200px;
+    inset-block-start: -200px;
+    inline-size: 500px;
+    block-size: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($brand-primary, 0.08), transparent 70%);
+    z-index: -1;
+
+    [dir='rtl'] & {
+      inset-inline-end: auto;
+      inset-inline-start: -200px;
+    }
+  }
+
+  &__head {
+    margin-block-end: 64px;
+    max-width: 720px;
+
+    @media (max-width: $bp-md) {
+      margin-block-end: 36px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 28px;
+
+    @media (max-width: $bp-lg) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    @media (max-width: $bp-md) {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+  }
+}
+
+.service-card {
+  position: relative;
+  background: $white;
+  padding: 36px 32px 32px;
+  border-radius: $radius-xl;
+  border: 1px solid $border;
+  overflow: hidden;
+  transition:
+    transform $dur-base $ease-out,
+    box-shadow $dur-base $ease-out,
+    border-color $dur-base $ease-out;
+  display: flex;
+  flex-direction: column;
+  min-block-size: 220px;
+
+  // ===== Asymmetric grid: first card spans 3, then 3, then a row of 3 cards each spanning 2 =====
+  grid-column: span 3;
+
+  &:nth-child(n + 3) {
+    grid-column: span 2;
+  }
+
+  @media (max-width: $bp-lg) {
+    grid-column: span 2 !important;
+    min-block-size: 200px;
+
+    &:nth-child(5) {
+      grid-column: 2 / span 2 !important;
+    }
+  }
+
+  @media (max-width: $bp-md) {
+    grid-column: 1 / -1 !important;
+    min-block-size: 0;
+    padding: 24px 20px;
+    border-radius: $radius-lg;
+
+    &:nth-child(5) {
+      grid-column: 1 / -1 !important;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inline-size: 0;
+    block-size: 4px;
+    background: linear-gradient(90deg, $brand-primary, $brand-accent);
+    transition: inline-size 600ms $ease-out;
+    border-start-start-radius: $radius-xl;
+    border-start-end-radius: $radius-xl;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset-block-end: -50px;
+    inset-inline-end: -50px;
+    inline-size: 140px;
+    block-size: 140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($brand-primary, 0.06), transparent 70%);
+    transition: transform $dur-slow $ease-out, opacity $dur-base $ease-out;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 22px 60px -18px rgba($navy-900, 0.18);
+    border-color: transparent;
+
+    &::before {
+      inline-size: 100%;
+    }
+
+    &::after {
+      opacity: 1;
+      transform: scale(1.4);
+    }
+
+    .service-card__icon {
+      background: linear-gradient(135deg, $brand-primary, $brand-accent);
+      color: $white;
+      transform: rotate(-8deg) scale(1.05);
+    }
+
+  }
+
+  @media (max-width: $bp-md) {
+    &:hover {
+      transform: none;
+    }
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 60px;
+    block-size: 60px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba($brand-primary, 0.14), rgba($brand-accent, 0.1));
+    color: $brand-primary-dark;
+    margin-block-end: 24px;
+    transition:
+      background $dur-base $ease-out,
+      color $dur-base $ease-out,
+      transform $dur-base $ease-out;
+    position: relative;
+    z-index: 2;
+
+    svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    @media (max-width: $bp-md) {
+      inline-size: 48px;
+      block-size: 48px;
+      border-radius: 14px;
+      margin-block-end: 16px;
+
+      svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin-block-end: 10px;
+    position: relative;
+    z-index: 2;
+
+    @media (max-width: $bp-md) {
+      font-size: 1.05rem;
+      margin-block-end: 8px;
+    }
+  }
+
+  p {
+    color: $text-secondary;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+
+    @media (max-width: $bp-md) {
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+  }
+}

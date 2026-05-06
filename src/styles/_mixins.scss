@@ -1,0 +1,72 @@
+@use 'variables' as *;
+
+@mixin container($max: $container) {
+  width: 100%;
+  max-width: $max;
+  margin-inline: auto;
+  padding-inline: $gutter;
+
+  @media (max-width: $bp-md) {
+    padding-inline: $gutter-mobile;
+  }
+}
+
+@mixin section-padding {
+  padding-block: clamp(64px, 8vw, 120px);
+}
+
+@mixin heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+@mixin display {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  font-size: clamp(2.25rem, 5.5vw, 4.25rem);
+}
+
+@mixin eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $brand-primary;
+
+  &::before {
+    content: '';
+    inline-size: 36px;
+    block-size: 1px;
+    background: currentColor;
+  }
+
+  [dir='rtl'] & {
+    letter-spacing: 0.06em;
+    text-transform: none;
+  }
+}
+
+@mixin glass($alpha: 0.06) {
+  background: rgba($white, $alpha);
+  border: 1px solid rgba($white, 0.12);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+@mixin focus-ring {
+  outline: 2px solid $brand-primary;
+  outline-offset: 3px;
+}
+
+@mixin reduce-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

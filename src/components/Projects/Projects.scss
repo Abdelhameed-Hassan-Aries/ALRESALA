@@ -1,0 +1,520 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+body.project-modal-open {
+  .header,
+  .whatsapp-float {
+    display: none !important;
+  }
+}
+
+.projects {
+  position: relative;
+  background: $bg-dark;
+  color: $text-on-dark;
+  overflow: hidden;
+  isolation: isolate;
+  padding-block: clamp(80px, 10vw, 140px);
+
+  &__decor {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(ellipse 70% 50% at 80% 10%, rgba($brand-primary, 0.22), transparent 60%),
+      radial-gradient(ellipse 50% 60% at 5% 95%, rgba($brand-accent, 0.16), transparent 70%),
+      linear-gradient(180deg, $navy-900 0%, $navy-800 100%);
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba($white, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba($white, 0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, $white 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, $white 30%, transparent 80%);
+      pointer-events: none;
+    }
+  }
+
+  &__head {
+    margin-block-end: 64px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: end;
+
+    @media (max-width: $bp-md) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  &__head-text {
+    max-width: 720px;
+
+    .section-subtitle {
+      margin-block-start: 14px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+}
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(165deg, rgba($white, 0.05) 0%, rgba($white, 0.02) 100%);
+  border: 1px solid rgba($white, 0.08);
+  border-radius: $radius-xl;
+  overflow: hidden;
+  transition:
+    transform $dur-base $ease-out,
+    border-color $dur-base $ease-out,
+    background $dur-base $ease-out,
+    box-shadow $dur-base $ease-out;
+
+  grid-column: span 6;
+  min-block-size: 100%;
+
+  @media (max-width: $bp-lg) {
+    grid-column: span 6 !important;
+  }
+
+  @media (max-width: $bp-md) {
+    grid-column: span 12 !important;
+  }
+
+  // Decorative corner accent
+  &::before {
+    content: '';
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    inline-size: 60px;
+    block-size: 60px;
+    background:
+      linear-gradient(225deg, rgba(var(--accent-r, 217), var(--accent-g, 119), var(--accent-b, 6), 0.22) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    border-color: rgba($brand-primary, 0.4);
+    background: linear-gradient(165deg, rgba($white, 0.07) 0%, rgba($white, 0.03) 100%);
+    box-shadow:
+      0 30px 80px -30px rgba($brand-accent, 0.4),
+      0 0 0 1px rgba($brand-primary, 0.15);
+
+    .project-card__media img {
+      transform: scale(1.08);
+    }
+
+    .project-card__media::after {
+      opacity: 1;
+    }
+
+    .project-card__cta {
+      gap: 14px;
+      color: $white;
+    }
+  }
+
+  &__media {
+    position: relative;
+    inline-size: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border: none;
+    padding: 0;
+    background: $navy-700;
+    display: block;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 800ms $ease-out;
+    }
+
+    .project-card:first-child & img {
+      object-position: center 35%;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba($navy-900, 0.7) 100%);
+      opacity: 0.4;
+      transition: opacity $dur-base $ease-out;
+      pointer-events: none;
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    inset-block-start: 16px;
+    inset-inline-start: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: $radius-pill;
+    font-size: 0.74rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 2;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    &--available {
+      background: rgba(#10b981, 0.22);
+      color: #6ee7b7;
+      border: 1px solid rgba(#10b981, 0.45);
+    }
+
+    &--coming-soon {
+      background: rgba($brand-primary, 0.22);
+      color: $brand-primary-light;
+      border: 1px solid rgba($brand-primary, 0.45);
+    }
+  }
+
+  &__body {
+    padding: 28px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 4px;
+    min-block-size: 300px;
+
+    @media (max-width: $bp-md) {
+      padding: 24px;
+      min-block-size: auto;
+    }
+  }
+
+  &__category {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: $brand-primary-light;
+    margin-block-end: 14px;
+    font-weight: 600;
+
+    &::before {
+      content: '';
+      inline-size: 24px;
+      block-size: 1px;
+      background: currentColor;
+    }
+
+    [dir='rtl'] & {
+      letter-spacing: 0.04em;
+      text-transform: none;
+    }
+  }
+
+  &__name {
+    font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+    color: $white;
+    margin-block-end: 10px;
+    line-height: 1.2;
+    min-block-size: 1.2em;
+  }
+
+  &__tagline {
+    color: rgba($white, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-block-end: 20px;
+    flex: 1;
+    min-block-size: 3.2em;
+
+    @media (max-width: $bp-md) {
+      min-block-size: auto;
+    }
+  }
+
+  &__meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: rgba($white, 0.6);
+    margin-block-end: 20px;
+    padding-block-end: 20px;
+    border-block-end: 1px solid rgba($white, 0.08);
+    min-block-size: 56px;
+
+    @media (max-width: $bp-md) {
+      min-block-size: auto;
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+      color: $brand-primary-light;
+      flex-shrink: 0;
+    }
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: $brand-primary-light;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0;
+    transition: gap $dur-base $ease-out, color $dur-base $ease-out;
+    align-self: flex-start;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: $z-modal + 1000;
+  background: rgba($navy-900, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  @media (max-width: $bp-md) {
+    padding: 0;
+  }
+
+  &__panel {
+    position: relative;
+    inline-size: min(960px, 100%);
+    max-block-size: 92vh;
+    overflow: auto;
+    background: $white;
+    color: $text-primary;
+    border-radius: $radius-xl;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: $shadow-xl;
+
+    @media (max-width: $bp-md) {
+      inline-size: 100%;
+      block-size: 100%;
+      max-block-size: none;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
+      border-radius: 0;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    inset-block-start: 14px;
+    inset-inline-end: 14px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba($navy-900, 0.6);
+    color: $white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 2;
+    transition: background $dur-fast;
+
+    &:hover {
+      background: rgba($navy-900, 0.85);
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &__media {
+    position: relative;
+    min-block-size: 320px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: $bp-md) {
+      block-size: min(42svh, 280px);
+      min-block-size: 0;
+      flex-shrink: 0;
+
+      img {
+        object-fit: fill;
+        object-position: center 38%;
+      }
+    }
+  }
+
+  &__body {
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-block-size: 100%;
+
+    @media (max-width: $bp-md) {
+      padding: 22px 20px 28px;
+      gap: 10px;
+      overflow-y: auto;
+      min-block-size: 0;
+    }
+
+    h3 {
+      font-size: 1.7rem;
+      color: $text-primary;
+
+      @media (max-width: $bp-md) {
+        font-size: 1.35rem;
+        line-height: 1.25;
+      }
+    }
+  }
+
+  &__category {
+    color: $brand-primary;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-block-end: 4px;
+
+    [dir='rtl'] & {
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    @media (max-width: $bp-md) {
+      font-size: 0.72rem;
+      margin-block-end: 0;
+    }
+  }
+
+  &__tagline {
+    color: $text-secondary;
+    font-size: 1.02rem;
+    line-height: 1.6;
+    font-style: italic;
+
+    @media (max-width: $bp-md) {
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+  }
+
+  &__meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: $text-muted;
+    font-size: 0.95rem;
+
+    @media (max-width: $bp-md) {
+      font-size: 0.85rem;
+    }
+
+    svg {
+      color: $brand-primary;
+    }
+  }
+
+  &__desc {
+    color: $text-secondary;
+    line-height: 1.7;
+    margin-block-end: 8px;
+
+    @media (max-width: $bp-md) {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      margin-block-end: 2px;
+    }
+  }
+
+  &__highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-block-end: 12px;
+
+    @media (max-width: $bp-md) {
+      gap: 8px;
+      margin-block-end: 6px;
+    }
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: $text-secondary;
+      font-size: 0.95rem;
+
+      @media (max-width: $bp-md) {
+        gap: 8px;
+        font-size: 0.88rem;
+      }
+
+      svg {
+        flex-shrink: 0;
+        color: $brand-primary;
+        margin-block-start: 3px;
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+
+  &__cta {
+    margin-block-start: auto;
+    padding-block-start: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    @media (max-width: $bp-md) {
+      margin-block-start: auto;
+      padding-block-start: 12px;
+      gap: 10px;
+
+      .btn {
+        flex: 1 1 100%;
+        justify-content: center;
+      }
+    }
+  }
+}

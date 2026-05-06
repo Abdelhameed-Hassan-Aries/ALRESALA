@@ -1,0 +1,23 @@
+@use '../../styles/variables' as *;
+
+.scroll-progress {
+  position: fixed;
+  inset-inline: 0;
+  inset-block-start: 0;
+  block-size: 3px;
+  z-index: $z-overlay;
+  background: transparent;
+  pointer-events: none;
+
+  &__bar {
+    block-size: 100%;
+    background: linear-gradient(90deg, $brand-primary, $brand-accent);
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 80ms linear;
+
+    [dir='rtl'] & {
+      transform-origin: right center;
+    }
+  }
+}

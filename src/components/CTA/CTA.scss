@@ -1,0 +1,75 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.cta {
+  padding-block: clamp(40px, 6vw, 80px) clamp(64px, 8vw, 100px);
+
+  &__panel {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: center;
+    justify-content: space-between;
+    background:
+      radial-gradient(ellipse 60% 80% at 0% 0%, rgba($brand-primary, 0.18), transparent 60%),
+      radial-gradient(ellipse 80% 80% at 100% 100%, rgba($brand-accent, 0.18), transparent 60%),
+      linear-gradient(135deg, $navy-900, $navy-800);
+    border-radius: $radius-xl;
+    padding: 56px 48px;
+    color: $white;
+    overflow: hidden;
+    box-shadow: $shadow-xl;
+
+    @media (max-width: $bp-md) {
+      padding: 40px 28px;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 280px;
+    position: relative;
+    z-index: 2;
+
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: $white;
+      max-width: 22ch;
+      margin-block-end: 12px;
+    }
+
+    p {
+      color: rgba($white, 0.75);
+      font-size: 1.02rem;
+      max-width: 50ch;
+      line-height: 1.65;
+    }
+  }
+
+  &__action {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__deco {
+    position: absolute;
+    inset-block-start: -80px;
+    inset-inline-end: -80px;
+    inline-size: 280px;
+    block-size: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($brand-primary, 0.22), transparent 70%);
+    pointer-events: none;
+
+    &--2 {
+      inset-block-start: auto;
+      inset-block-end: -120px;
+      inset-inline-end: auto;
+      inset-inline-start: -100px;
+      inline-size: 360px;
+      block-size: 360px;
+      background: radial-gradient(circle, rgba($brand-accent, 0.18), transparent 70%);
+    }
+  }
+}

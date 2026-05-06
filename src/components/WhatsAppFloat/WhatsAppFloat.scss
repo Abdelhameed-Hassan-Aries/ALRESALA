@@ -1,0 +1,71 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.whatsapp-float {
+  position: fixed;
+  inset-block-end: 24px;
+  inset-inline-end: 24px;
+  inline-size: 58px;
+  block-size: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: $white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14px 36px rgba(#25d366, 0.45);
+  z-index: $z-overlay;
+  opacity: 0;
+  transform: translateY(16px) scale(0.85);
+  pointer-events: none;
+  transition: opacity $dur-base $ease-out, transform $dur-base $ease-out,
+    background $dur-fast;
+
+  &.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  body.project-modal-open & {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(16px) scale(0.85);
+  }
+
+  &:hover {
+    background: #1ebe57;
+    transform: translateY(-3px);
+  }
+
+  svg {
+    width: 28px;
+    height: 28px;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #25d366;
+    opacity: 0.6;
+    animation: whatsappPulse 2.4s ease-out infinite;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  @include reduce-motion {
+    &__pulse {
+      animation: none;
+      opacity: 0;
+    }
+  }
+}
+
+@keyframes whatsappPulse {
+  0%   { transform: scale(1); opacity: 0.6; }
+  80%  { transform: scale(1.7); opacity: 0; }
+  100% { transform: scale(1.7); opacity: 0; }
+}

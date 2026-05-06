@@ -1,0 +1,182 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.footer {
+  background: $bg-dark;
+  color: $text-on-dark;
+  padding-block: 80px 0;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  &__decor {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(ellipse 60% 40% at 90% 0%, rgba($brand-primary, 0.18), transparent 60%),
+      radial-gradient(ellipse 40% 50% at 0% 100%, rgba($brand-accent, 0.12), transparent 70%);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    padding-block-end: 60px;
+    border-block-end: 1px solid rgba($white, 0.08);
+
+    @media (max-width: $bp-lg) {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    @media (max-width: $bp-sm) {
+      gap: 30px;
+    }
+  }
+
+  &__brand {
+    grid-column: 1 / 2;
+
+    @media (max-width: $bp-lg) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__brand-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    color: inherit;
+    margin-block-end: 18px;
+
+    img {
+      width: 56px;
+      height: 56px;
+      border-radius: $radius-sm;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+  }
+
+  &__brand-name {
+    display: block;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: $white;
+  }
+
+  &__brand-tag {
+    display: block;
+    font-size: 0.8rem;
+    color: rgba($white, 0.6);
+    margin-block-start: 2px;
+  }
+
+  &__about {
+    color: rgba($white, 0.65);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 42ch;
+    margin-block-end: 22px;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 10px;
+
+    a {
+      inline-size: 40px;
+      block-size: 40px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba($white, 0.06);
+      border: 1px solid rgba($white, 0.1);
+      color: $white;
+      transition: background $dur-fast, border-color $dur-fast, transform $dur-fast;
+
+      &:hover {
+        background: $brand-primary;
+        border-color: $brand-primary;
+        transform: translateY(-3px);
+      }
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  &__col {
+    h4 {
+      color: $white;
+      font-size: 1rem;
+      margin-block-end: 18px;
+      position: relative;
+      padding-block-end: 12px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset-block-end: 0;
+        inset-inline-start: 0;
+        inline-size: 36px;
+        block-size: 2px;
+        background: $brand-primary;
+        border-radius: 2px;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    a {
+      color: rgba($white, 0.65);
+      font-size: 0.95rem;
+      transition: color $dur-fast, padding-inline-start $dur-fast;
+
+      &:hover {
+        color: $brand-primary-light;
+        padding-inline-start: 6px;
+      }
+    }
+  }
+
+  &__contacts {
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+
+      svg {
+        flex-shrink: 0;
+        margin-block-start: 4px;
+        color: $brand-primary-light;
+        width: 16px;
+        height: 16px;
+      }
+
+      a {
+        line-height: 1.55;
+      }
+    }
+  }
+
+  &__bar {
+    padding-block: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    color: rgba($white, 0.5);
+    font-size: 0.85rem;
+    text-align: center;
+  }
+}

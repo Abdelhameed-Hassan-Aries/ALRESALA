@@ -1,0 +1,184 @@
+{
+  "brand": {
+    "name": "AlResalah Group",
+    "tagline": "A new era in real-estate development",
+    "shortName": "AlResalah"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "services": "Services",
+    "contact": "Contact",
+    "menu": "Menu"
+  },
+  "lang": {
+    "switch": "ع",
+    "switchAria": "التحويل إلى العربية"
+  },
+  "hero": {
+    "eyebrow": "Trusted Real Estate Developer",
+    "title": "We build trust before we build property",
+    "subtitle": "At AlResalah Group, we deliver real-estate investments that combine prime locations, refined design, and growing value — because the land of today is the wealth of tomorrow.",
+    "ctaPrimary": "Discover our projects",
+    "ctaSecondary": "Get in touch",
+    "scroll": "Scroll",
+    "stat1Label": "Years of Experience",
+    "stat2Label": "Diverse Projects",
+    "stat3Label": "Happy Clients"
+  },
+  "about": {
+    "eyebrow": "About AlResalah",
+    "title": "Our vision: to be your first choice in smart real-estate investing",
+    "p1": "AlResalah Group was founded on a clear mission — to deliver properties worth your trust, in strategic locations, with value that grows over time. We develop residential, investment, industrial, and resort projects that elevate the lifestyle of our clients.",
+    "p2": "We believe a successful property is more than a building — it is a thoughtful investment decision and a long-term relationship. That is why we hold ourselves to the highest standards of quality, transparency and on-time delivery.",
+    "feature1Title": "Strategic Location",
+    "feature1Desc": "Every project is hand-picked in the most promising growth areas.",
+    "feature2Title": "Value That Grows",
+    "feature2Desc": "Your investment with us appreciates over time — never just stored.",
+    "feature3Title": "A Real Opportunity",
+    "feature3Desc": "Curated real-estate options that fit the smart investor.",
+    "values": {
+      "trust": "Trust",
+      "quality": "Quality",
+      "delivery": "On-time delivery",
+      "transparency": "Transparency"
+    },
+    "miniStat1": "Projects",
+    "miniStat2": "Trusted clients"
+  },
+  "projects": {
+    "eyebrow": "Our Projects",
+    "title": "A diverse portfolio for every ambition",
+    "subtitle": "From investment lands in prime locations to luxury residential developments and resorts.",
+    "viewDetails": "View Details",
+    "comingSoon": "Coming Soon",
+    "available": "Available Now",
+    "category": "Type",
+    "location": "Location",
+    "status": "Status",
+    "items": {
+      "alObour": {
+        "name": "New Obour Lands",
+        "category": "Investment Land",
+        "location": "New Obour City (formerly El-Qadissia)",
+        "tagline": "Land never loses value — but timing might cost you",
+        "description": "An investment opportunity in a strategic location at New Obour City, in the heart of one of the fastest-growing areas. Land value rises every day — don't let the chance pass.",
+        "highlights": [
+          "Strategic location in New Obour City",
+          "Investment value rising every day",
+          "A real opportunity for the smart investor"
+        ]
+      },
+      "industrial": {
+        "name": "Industrial Lands",
+        "category": "Industrial Land",
+        "location": "Selected Industrial Zones",
+        "tagline": "Choose the location of your industrial land yourself",
+        "description": "Industrial lands of various sizes in carefully selected locations, giving you full freedom to choose the spot that fits your project. Ready for your industrial launch.",
+        "highlights": [
+          "Diverse plot sizes for any project",
+          "Freedom to choose the ideal location",
+          "Approved utilities and master plans"
+        ]
+      },
+      "suaveResort": {
+        "name": "Suave Resort",
+        "category": "Residential Resort",
+        "location": "Coastal",
+        "tagline": "A complete living experience — coming soon",
+        "description": "Suave Resort is our newest residential project, blending luxury and comfort in a modern, integrated design surrounded by serene nature. Coming soon.",
+        "highlights": [
+          "Modern architectural design",
+          "Peaceful environment & full amenities",
+          "Units in various sizes"
+        ]
+      },
+      "premium": {
+        "name": "Premium Development",
+        "category": "Luxury Residential",
+        "location": "Prime Location",
+        "tagline": "A new chapter begins — a premium development redefining modern living",
+        "description": "A luxury residential project that redefines elegance. Unique architecture, lush green spaces, and exceptional amenities. Full details coming soon.",
+        "highlights": [
+          "Modern classic luxury architecture",
+          "Exceptional facilities & services",
+          "Hand-picked prime location"
+        ]
+      }
+    }
+  },
+  "services": {
+    "eyebrow": "Why AlResalah",
+    "title": "Five values that make us the smarter choice",
+    "subtitle": "We don't just sell you a property — we build a long-term investment relationship with you.",
+    "items": {
+      "trust": {
+        "title": "Trust & Transparency",
+        "desc": "An honest, clear relationship from the first contract to delivery."
+      },
+      "location": {
+        "title": "Curated Locations",
+        "desc": "Every plot is hand-picked in the most promising and valuable areas."
+      },
+      "value": {
+        "title": "Growing Value",
+        "desc": "Your investment in land today is your wealth tomorrow."
+      },
+      "diverse": {
+        "title": "Diverse Portfolio",
+        "desc": "Residential, investment, industrial and resort options for everyone."
+      },
+      "support": {
+        "title": "Continuous Support",
+        "desc": "Our team is with you from your first inquiry all the way past delivery."
+      }
+    }
+  },
+  "stats": {
+    "title": "Numbers that tell our story",
+    "items": {
+      "experience": "Years Experience",
+      "projects": "Projects",
+      "clients": "Happy Clients",
+      "areas": "Areas Covered"
+    }
+  },
+  "cta": {
+    "title": "Invest in New Obour before time outpaces you",
+    "subtitle": "Opportunities don't wait — today the land is still in your hands at its current price.",
+    "button": "Book your consultation"
+  },
+  "contact": {
+    "eyebrow": "Contact Us",
+    "title": "Our expertise at your service — start your real-estate journey",
+    "subtitle": "Fill in the form and one of our advisors will reach out within 24 hours, or call us directly.",
+    "form": {
+      "name": "Full name",
+      "phone": "Phone number",
+      "email": "Email address",
+      "interest": "Project of interest",
+      "interestPlaceholder": "Choose a project",
+      "interestGeneral": "General inquiry",
+      "message": "Your message",
+      "submit": "Send message",
+      "success": "Your message has been received! We'll contact you soon.",
+      "successHint": "For now, you can also reach us directly on WhatsApp or by phone.",
+      "required": "This field is required"
+    },
+    "info": {
+      "phoneLabel": "Call us",
+      "emailLabel": "Email us",
+      "addressLabel": "Address",
+      "address": "194 Gesr El-Suez St., Al-Hassan Towers 1, 2nd Floor, Cairo, Egypt",
+      "hoursLabel": "Working hours",
+      "hours": "Sat – Thu: 10 AM – 8 PM"
+    }
+  },
+  "footer": {
+    "tagline": "We build trust before we build property. AlResalah Group — your real-estate vision starts here.",
+    "contactUs": "Contact",
+    "followUs": "Follow Us",
+    "rights": "© {{year}} AlResalah Real Estate Group. All rights reserved."
+  }
+}
